@@ -16,12 +16,6 @@ public class Bat : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (GameManager.SharedInstance.IsPlayerTag(other.gameObject.tag)) {
-            GameManager.SharedInstance.Lose();
-        }
-    }
-
     private void Update() {
         MoveTowardsPlayer();
     }

@@ -5,12 +5,6 @@ public class Cactus : MonoBehaviour {
     [SerializeField] Sprite[] sprites;
     [SerializeField] float speed;
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (GameManager.SharedInstance.IsPlayerTag(other.gameObject.tag)) {
-            GameManager.SharedInstance.Lose();
-        }
-    }
-
     private void OnEnable() {
         SetPosition();
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 namespace Runner {
     public class PlayerController : MonoBehaviour {
         const String JUMP_TRIGGER = "Jumped";
+        const String DIED_TRIGGER = "Died";
+
         [SerializeField] private Animator animator;
         [SerializeField] private float jumpForce;
         [SerializeField] private PlayerSounds playerSounds;
@@ -18,7 +20,9 @@ namespace Runner {
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (GameManager.SharedInstance.IsObstacleTag(other.gameObject.tag)) {
+                this.animator.SetTrigger(DIED_TRIGGER);
                 this.playerSounds.PlayDieClip();
+                GameManager.SharedInstance.Lose();
             }
         }
 
@@ -37,7 +41,7 @@ namespace Runner {
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
                 this.isGrounded = false;
                 this.playerSounds.PlayJumpClip();
-                animator.SetBool(JUMP_TRIGGER, true);
+                animator.SetTrigger(JUMP_TRIGGER);
                 this.rigidBody2D.AddForce(Vector2.up * this.jumpForce, ForceMode2D.Impulse);
             }
         }
