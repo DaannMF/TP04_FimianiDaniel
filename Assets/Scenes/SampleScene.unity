@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 111149959}
   - component: {fileID: 111149958}
   - component: {fileID: 111149957}
+  - component: {fileID: 111149960}
   m_Layer: 5
   m_Name: PanelGameOver
   m_TagString: Untagged
@@ -417,7 +418,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111149955}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -425,7 +426,7 @@ RectTransform:
   - {fileID: 555781021}
   - {fileID: 297794470}
   - {fileID: 431111899}
-  m_Father: {fileID: 1039684514}
+  m_Father: {fileID: 111166544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -496,6 +497,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111149955}
   m_CullTransparentMesh: 1
+--- !u!114 &111149960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111149955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699775e414ed64f6ba24e042693cc0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFinalScore: {fileID: 297794471}
+  restartButton: {fileID: 431111900}
 --- !u!1 &111166543
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +548,7 @@ RectTransform:
   - {fileID: 934001811}
   - {fileID: 548020579}
   - {fileID: 1039684514}
+  - {fileID: 111149956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8018,6 +8034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 111149955}
+  playerController: {fileID: 723656355}
 --- !u!114 &871434531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8237,7 +8254,6 @@ RectTransform:
   - {fileID: 1699586039}
   - {fileID: 2138808490}
   - {fileID: 183316520}
-  - {fileID: 111149956}
   m_Father: {fileID: 111166544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

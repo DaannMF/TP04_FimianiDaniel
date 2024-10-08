@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,12 +30,11 @@ public class ObstaclePool : MonoBehaviour {
     }
 
     public GameObject GetPooledObject() {
-        for (int i = 0; i < this.obstaclePrefabs.Length; i++) {
-            if (!this.obstaclePool[i].activeInHierarchy) {
-                return this.obstaclePool[i];
-            }
-        }
-        return null;
+        GameObject obstacle = null;
+        do {
+            obstacle = obstaclePool[Random.Range(0, obstaclePrefabs.Length)];
+        } while (obstacle == null);
+        return obstacle;
     }
 
     public void DeactivateInstances() {

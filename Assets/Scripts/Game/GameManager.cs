@@ -1,8 +1,10 @@
 using System;
+using Runner;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private PlayerController playerController;
 
     const string PLAYER_TAG = "Player";
     const string OBSTACLE_LIMIT_TAG = "ObstacleLimit";
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
-        ReStart();
+        Reset();
     }
 
     public void Lose() {
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour {
     public void ReStart() {
         this.gameOverMenu.SetActive(false);
         Reset();
+        ResumeGame();
     }
 
     public void PauseGame() {
@@ -49,6 +52,7 @@ public class GameManager : MonoBehaviour {
 
     public void Reset() {
         this.score.Reset();
+        this.playerController.ResetPlayer();
         ObstaclePool.SharedInstance.DeactivateInstances();
     }
 
@@ -66,5 +70,9 @@ public class GameManager : MonoBehaviour {
 
     public Boolean IsObstacleTag(String tag) {
         return tag.Equals(OBSTACLE_TAG);
+    }
+
+    public String GetScore() {
+        return this.score.GetScore().ToString("0");
     }
 }

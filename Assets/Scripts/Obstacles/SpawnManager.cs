@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour {
+public class SpawnManager : MonoBehaviour
+{
     [SerializeField] private float spawnTime = 2f;
     private float elapseTime = 0f;
 
-    // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         SpawnLoop();
     }
 
-    void SpawnLoop() {
+    void SpawnLoop()
+    {
         this.elapseTime += Time.deltaTime;
-        if (elapseTime >= spawnTime) {
+        if (elapseTime >= spawnTime)
+        {
             Spawn();
             this.elapseTime = 0;
         }
     }
 
-    void Spawn() {
+    void Spawn()
+    {
         GameObject obstacle = ObstaclePool.SharedInstance.GetPooledObject();
-        if (obstacle != null) {
+        if (obstacle != null)
+        {
             obstacle.SetActive(true);
         }
     }

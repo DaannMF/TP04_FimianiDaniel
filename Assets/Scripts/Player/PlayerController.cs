@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Runner {
     public class PlayerController : MonoBehaviour {
+
+        const float START_POS_X = -6f;
+        const float START_POS_Y = -3.2f;
         const String JUMP_TRIGGER = "Jumped";
         const String DIED_TRIGGER = "Died";
 
@@ -44,6 +47,10 @@ namespace Runner {
                 animator.SetTrigger(JUMP_TRIGGER);
                 this.rigidBody2D.AddForce(Vector2.up * this.jumpForce, ForceMode2D.Impulse);
             }
+        }
+
+        public void ResetPlayer() {
+            this.transform.position = new Vector3(START_POS_X, START_POS_Y, transform.position.z);
         }
     }
 }
