@@ -7,10 +7,10 @@ public class UIGameOverMenu : MonoBehaviour {
     [SerializeField] private TMP_Text textFinalScore;
     [SerializeField] private Button restartButton;
 
+    private void OnEnable() {
+        ShowFinalResult();
+    }
     private void Start() {
-        if (this.gameObject.activeInHierarchy) {
-            ShowFinalResult();
-        }
         restartButton.onClick.AddListener(OnRestartButtonClicked);
     }
 
